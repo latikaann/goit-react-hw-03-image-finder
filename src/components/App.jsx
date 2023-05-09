@@ -143,7 +143,7 @@ class App extends Component {
   };
 
   handleCardClick = (largeImageURL, tags) => {
-    console.log(largeImageURL);
+    // console.log(largeImageURL);
     this.setState({
       showModal: true,
       largeImageURL: largeImageURL,
