@@ -1,5 +1,6 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 import css from './ImageGallery.module.css';
 import ImageGalleryItem from './ImageGalleryItem';
 
@@ -20,3 +21,7 @@ const ImageGallery = ({ cards, onClick }) => {
 };
 
 export default ImageGallery;
+
+ImageGalleryItem.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
