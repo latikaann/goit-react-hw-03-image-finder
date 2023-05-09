@@ -10,8 +10,14 @@
     list-style: none;
     margin-left: auto;
     margin-right: auto;
+
+    
 }
 
+/* @media screen and (min-width: 1199px) {
+    .ImageGallery {
+    max-width: calc((100vw - 48px) / 4);
+}} */
 /*
  * Стили компонента ImageGalleryItem
  */

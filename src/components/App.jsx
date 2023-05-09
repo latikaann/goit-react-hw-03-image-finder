@@ -18,8 +18,8 @@ class App extends Component {
     searchQuery: '',
     totalImages: 0,
     showModal: false,
-    modalCard: '',
-    modalAlt: '',
+    largeImageURL: '',
+    alt: '',
   };
 
   handleSubmit = async e => {
@@ -142,32 +142,12 @@ class App extends Component {
     this.setState({ showModal: false });
   };
 
-  componentDidMount() {
-    window.addEventListener('keydown', this.handleKeyDown);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleKeyDown);
-  }
-
-  handleKeyDown = e => {
-    if (e.code === 'Escape') {
-      this.onCloseModal();
-    }
-  };
-
-  handleBackdropClick = e => {
-    if (e.currentTarget === e.target) {
-      this.onCloseModal();
-    }
-  };
-
-  handleCardClick = e => {
-    console.log(this.state.cards);
+  handleCardClick = (largeImageURL, tags) => {
+    console.log(largeImageURL);
     this.setState({
       showModal: true,
-      modalAlt: e.target.alt,
-      modalCard: e.target.src,
+      largeImageURL: largeImageURL,
+      alt: tags,
     });
   };
 
@@ -178,8 +158,8 @@ class App extends Component {
       isLoading,
       cards,
       showModal,
-      modalCard,
-      modalAlt,
+      alt,
+      largeImageURL,
     } = this.state;
 
     const hideBtn = page === totalImages;
@@ -194,9 +174,9 @@ class App extends Component {
 
         {showModal && (
           <Modal
-            onClick={this.handleBackdropClick}
-            src={modalCard}
-            alt={modalAlt}
+            alt={alt}
+            largeImageURL={largeImageURL}
+            onClose={this.onCloseModal}
           />
         )}
       </div>
