@@ -46,7 +46,7 @@ class App extends Component {
     });
 
     try {
-      const cards = await API.fetchCards(searchQuery, this.state.page);
+      const cards = await API.fetchCards(searchQuery);
 
       if (cards.hits.length === 0) {
         toast.error(
